@@ -1,0 +1,272 @@
+/* أضف تنسيق Tailwind CSS هنا */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #1e1e2f;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-container {
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.password-container,
+.admin-dashboard {
+  background-color: #2a2a40;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.password-container input,
+.withdraw-container input,
+.recharge-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #3a3a55;
+  color: white;
+}
+
+.password-container input::placeholder,
+.withdraw-container input::placeholder,
+.recharge-container input::placeholder {
+  color: #bbb;
+}
+
+.password-container button,
+.withdraw-container button,
+.recharge-container button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+.password-container button:hover,
+.withdraw-container button:hover,
+.recharge-container button:hover {
+  background-color: #0097a7;
+}
+
+.buttons-container,
+.orders-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.button {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  background-color: #357ab8;
+  transform: translateY(-2px);
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 20px;
+  }
+  .button {
+    font-size: 16px;
+  }
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #2a2a40;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.requests-table th,
+.requests-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  color: #fff;
+}
+
+.requests-table th {
+  background-color: #3a3a55;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+.requests-table tr:hover {
+  background-color: #333851;
+  transition: background-color 0.3s ease;
+}
+
+.requests-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #00bcd4;
+}
+
+@media (max-width: 768px) {
+  .requests-table th, .requests-table td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+.table-container {
+  padding: 20px;
+  text-align: center;
+  font-family: "Cairo", sans-serif;
+  background-color: #1e1e1e;
+  color: white;
+  min-height: 100vh;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.styled-table thead tr {
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #555;
+}
+
+.styled-table tr:hover {
+  background-color: #3a3a3a;
+}
+
+.search-input {
+  padding: 10px;
+  width: 250px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.execute-btn {
+  background-color: #4caf50;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.execute-btn:hover {
+  background-color: #45a049;
+}
+
+.table-container {
+  width: 95%;
+  max-width: 1100px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.table-container input {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 250px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  color: #00ffd5;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+button {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #3b3b3b, #1f1f1f);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
