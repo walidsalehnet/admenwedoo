@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, getDocs, updateDoc, doc } from 'firebase/firestore';
-import './App.css'; // ملف CSS خارجي لو حابب
+import './App.css';
 
 const RechargeRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -27,6 +27,12 @@ const RechargeRequests = () => {
     fetchRequests();
   };
 
+  const handleCancel = async (record) => {
+    const docRef = doc(db, 'requests', record.id);
+    await updateDoc(docRef, { status: 'ملغي' });
+    fetchRequests();
+  };
+
   useEffect(() => {
     fetchRequests();
   }, []);
@@ -45,36 +51,41 @@ const RechargeRequests = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <table className="styled-table">
-        <thead>
-          <tr>
-            <th>رقم الطلب</th>
-            <th>الإيميل</th>
-            <th>من</th>
-            <th>إلى</th>
-            <th>المبلغ</th>
-            <th>الحالة</th>
-            <th>إجراء</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filtered.map((r) => (
-            <tr key={r.id}>
-              <td>{r.orderId}</td>
-              <td>{r.userEmail}</td>
-              <td>{r.senderPhone}</td>
-              <td>{r.receiverPhone}</td>
-              <td>{r.amount} جنيه</td>
-              <td>{r.status}</td>
-              <td>
-                {r.status === 'قيد التنفيذ' && (
-                  <button className="execute-btn" onClick={() => handleExecute(r)}>تم التنفيذ</button>
-                )}
-              </td>
+      <div className="table-wrapper">
+        <table className="styled-table">
+          <thead>
+            <tr>
+              <th>رقم الطلب</th>
+              <th>الإيميل</th>
+              <th>من</th>
+              <th>إلى</th>
+              <th>المبلغ</th>
+              <th>الحالة</th>
+              <th>إجراء</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filtered.map((r) => (
+              <tr key={r.id}>
+                <td>{r.orderId}</td>
+                <td>{r.userEmail}</td>
+                <td>{r.senderPhone}</td>
+                <td>{r.receiverPhone}</td>
+                <td>{r.amount} جنيه</td>
+                <td>{r.status}</td>
+                <td>
+                  {r.status === 'قيد التنفيذ' && (
+                    <>
+                      <button className="execute-btn" onClick={() => handleExecute(r)}>تم التنفيذ</button>
+                      <button className="cancel-btn" onClick={() => handleCancel(r)}>إلغاء</button>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
